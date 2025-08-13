@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}
+
+.fondo {
+  position: fixed;
+  top: 0;
+  left: -100px;
+  width: calc(100vw + 150px);
+  height: 101vh;
+  background-image: url('/assets/labo-inicio.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  filter: blur(5px) brightness(70%);
+}
+
+.content {
+  height: calc(100vh - 100px);
+  position: relative;
+  z-index: 1;
+  background-color: rgb(95, 95, 95);
+  text-align: center;
+  padding: 2rem 2rem 2rem 4rem; /* arriba, derecha, abajo, izquierda */
+  width: 100%;
+  max-width: 450px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 10px;
+  border-radius: 2%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .content {
+    max-width: 100%;
+    border-radius: 0;
+    padding: 2rem 1rem;
+  }
+}
+

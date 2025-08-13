@@ -1,0 +1,23 @@
+<div class="activated-wrapper">
+  <a routerLink="/">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo de MiSitio" class="logo-img">
+    </div>
+  </a>
+
+  <div class="activated-container">
+    <h2>Activación de Cuenta</h2>
+
+    <div *ngIf="successMessage" class="mensaje-exito">
+      {{ successMessage }}
+    </div>
+
+    <div *ngIf="errorMessage" class="mensaje-error">
+      {{ errorMessage }}
+    </div>
+
+    <div class="boton">
+      <button (click)="irAlLogin()">Ir al Login</button>
+    </div>
+  </div>
+</div>

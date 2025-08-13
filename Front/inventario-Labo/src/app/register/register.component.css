@@ -1,0 +1,161 @@
+/* Fondo general */
+.register-wrapper {
+  height: 100vh;
+  width: 100vw;
+  margin: -20px;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #285, #07d4ca);
+  overflow: hidden;
+}
+
+/* Caja blanca del formulario */
+.register-container {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 340px;
+  max-height: 95vh;
+  overflow-y: auto;
+}
+
+.register-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.register-container label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.register-container input,
+.register-container select {
+  width: 96%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.register-container .boton {
+  display: flex;
+  justify-content: center;
+}
+
+.register-container button {
+  width: 50%;
+  padding: 10px;
+  margin-top: 20px;
+  background: linear-gradient(to right, #285, #1aa8a1);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-container button:hover {
+  background: linear-gradient(to right, #285, #1aa8a1);
+}
+
+/* Logo a la izquierda con margen */
+.logo {
+  margin-right: 150px;
+  display: flex;
+  align-items: center;
+}
+
+/* Imagen del logo con borde y bordes redondeados */
+.logo img {
+  border: 5px solid white;
+  border-radius: 20%;
+  overflow: hidden;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.register-container .login {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.register-container .login .botonL {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Separación entre botones tipo usuario */
+.tipo-selector {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Nuevo espaciado entre los botones */
+  margin-bottom: 20px;
+}
+
+.tipo-selector button {
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: linear-gradient(to right, #07d4ca, #285);
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.tipo-selector button:hover {
+  background-color: #1a1a1a;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+
+
+
+/* Mensajes de éxito y error */
+.success-message {
+  color: green;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 5px;
+  text-align: center;
+}
+
+/* Botón volver */
+.volver {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.volver button {
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background-color: #ccc;
+}
+
+.volver button:hover {
+  background-color: #bbb;
+}
+

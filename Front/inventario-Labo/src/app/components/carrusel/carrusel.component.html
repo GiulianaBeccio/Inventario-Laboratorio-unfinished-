@@ -1,0 +1,17 @@
+<div class="carrusel-container">
+  <div 
+    class="carrusel-slide" 
+    [style.transform]="'translateX(-' + currentIndex * 100 + '%)'"
+    [class.no-transition]="noTransition"
+    (transitionend)="onTransitionEnd()"
+  >
+    <img [src]="imagenesClonadas[0]" alt="Clon último">
+    <img *ngFor="let imagen of imagenes" [src]="imagen" alt="Imagen carrusel" />
+    <img [src]="imagenesClonadas[1]" alt="Clon primero">
+  </div>
+
+  <button class="carrusel-button left" (click)="anterior()">‹</button>
+  <button class="carrusel-button right" (click)="siguiente()">›</button>
+</div>
+
+

@@ -1,0 +1,50 @@
+.main-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #285, #1aa8a1);
+  padding: 1rem 2rem;
+  color: white;
+  margin: -1rem -0.5rem 0 -1rem;
+  /* background-color: #285;*/
+}
+
+.main-header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center; /*centra horizontalmente */
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 20%;
+  overflow: hidden; /* Evita que el contenido sobresalga */
+  background-color: #00000000; /* Opcional, para ver mejor el círculo */
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.logo img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}

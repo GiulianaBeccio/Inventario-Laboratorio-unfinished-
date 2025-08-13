@@ -1,0 +1,141 @@
+/* Contenedor principal centrado con fondo degradado */
+.login-wrapper {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #285, #07d4ca);
+  box-sizing: border-box;
+  margin: -8px;
+}
+
+/* Caja blanca del formulario */
+.login-container {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 320px;
+  box-sizing: border-box;
+}
+
+/* Título centrado */
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #222;
+}
+
+/* Labels en bloque con margen */
+.login-container label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Inputs con tamaño completo */
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.login-container input:focus {
+  border-color: #07d4ca;
+  outline: none;
+}
+
+/* Botón centrado */
+.login-container .boton {
+  display: flex;
+  justify-content: center;
+}
+
+/* Botones con colores y hover */
+.login-container button {
+  width: 60%;
+  padding: 12px;
+  margin-top: 25px;
+  background: linear-gradient(to right, #285, #1aa8a1);
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-sizing: border-box;
+}
+
+.login-container button:hover {
+  background: linear-gradient(to right, #1a7f7b, #0f6160);
+}
+
+/* Logo a la izquierda con margen */
+.logo {
+  margin-right: 150px;
+  display: flex;
+  align-items: center;
+}
+
+/* Imagen del logo con borde y bordes redondeados */
+.logo img {
+  border: 5px solid white;
+  border-radius: 20%;
+  overflow: hidden;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Contenedor para la parte registrar */
+.login-container .registrar {
+  margin-top: 40px;
+  text-align: center;
+  color: #444;
+  font-weight: 600;
+}
+
+/* Botón registrar centrado */
+.login-container .registrar .botonR {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+/* Estilo para el enlace */
+a {
+  text-decoration: none;
+}
+
+
+/* Estilos mensaje de error */
+.mensaje-error {
+  color: #b00020;              /* rojo oscuro */
+  background-color: #fddede;   /* rojo muy suave, casi rosado */
+  border: 1px solid #b00020;  /* borde rojo */
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+}
+
+/* Opcional: icono con pseudo-elemento */
+.mensaje-error::before {
+  content: "⚠️";
+  font-size: 1.2rem;
+}
+
