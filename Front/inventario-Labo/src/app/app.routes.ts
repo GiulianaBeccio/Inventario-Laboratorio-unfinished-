@@ -5,12 +5,36 @@ import { RegisterComponent } from './register/register.component';
 import { ActivatedComponent } from './activated/activated.component';
 import { InicioComponent } from './pages/inicio.component';
 
-
+// Importar el guard de autenticación
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'activado', component: ActivatedComponent },
-  { path: 'inicio', component: InicioComponent }
+  { 
+    path: '', 
+    component: HomeComponent,
+  },
+  { 
+    path: 'login', 
+    component: LoginComponent 
+    // ← Pública (sin canActivate)
+  },
+  { 
+    path: 'register', 
+    component: RegisterComponent 
+    // ← Pública
+  },
+  { 
+    path: 'activado', 
+    component: ActivatedComponent 
+    // ← Pública (página de activación)
+  },
+  { 
+    path: 'inicio', 
+    component: InicioComponent,
+    canActivate: [authGuard]  // ← Protegida
+  },
+  { 
+    path: '**', 
+    redirectTo: ''  // ← Redirigir a home si la ruta no existe
+  }
 ];
