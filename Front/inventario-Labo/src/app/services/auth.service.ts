@@ -9,6 +9,8 @@ interface LoginResponse {
   token: string;
   role: string;
   email: string;
+  nombre : string;
+  apellido: string;
 }
 
 @Injectable({
@@ -31,6 +33,8 @@ export class AuthService {
             sessionStorage.setItem('authToken', response.token);
             sessionStorage.setItem('userRole', response.role);
             sessionStorage.setItem('userEmail', response.email);
+            sessionStorage.setItem('userNombre', response.nombre);
+            sessionStorage.setItem('userApellido', response.apellido);
             this.isAuthenticatedSubject.next(true);
           }
         }),
@@ -42,6 +46,8 @@ export class AuthService {
     sessionStorage.removeItem('authToken');
     sessionStorage.removeItem('userRole');
     sessionStorage.removeItem('userEmail');
+    sessionStorage.removeItem('userNombre');
+    sessionStorage.removeItem('userApellido');
     this.isAuthenticatedSubject.next(false);
     this.router.navigate(['/login']);
   }
@@ -56,6 +62,20 @@ export class AuthService {
 
   getEmail(): string | null {
     return sessionStorage.getItem('userEmail');
+  }
+
+  getNombreCompleto(): string {
+    const nombre = sessionStorage.getItem('userNombre') || '';
+    const apellido = sessionStorage.getItem('userApellido') || '';
+    return `${nombre} ${apellido}`.trim();
+  }
+
+  getNombre(): string | null {
+    return sessionStorage.getItem('userNombre');
+  }
+
+  getApellido(): string | null {
+    return sessionStorage.getItem('userApellido');
   }
 
   isLoggedIn(): boolean {

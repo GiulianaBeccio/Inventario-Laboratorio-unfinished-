@@ -49,7 +49,9 @@ public class LoginController {
                 "Login exitoso",
                 token,
                 user.getRole(),
-                user.getEmail()
+                user.getEmail(),
+                user.getNombre(),
+                user.getApellido()
             );
 
             return ResponseEntity.ok(response);

@@ -1,0 +1,53 @@
+<div class="activated-wrapper">
+  <a routerLink="/">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo del Laboratorio" class="logo-img">
+    </div>
+  </a>
+
+  <div class="activated-container">
+    <h2>Contacto del Laboratorio</h2>
+    
+    <div class="contacto-info">
+      <div class="contacto-item">
+        <i class="icon">📧</i>
+        <div>
+          <strong>Email:</strong>
+          <a [href]="'mailto:' + contacto.email" class="contacto-link">
+            {{ contacto.email }}
+          </a>
+        </div>
+      </div>
+
+      <div class="contacto-item">
+        <i class="icon">📞</i>
+        <div>
+          <strong>Teléfono:</strong>
+          <a [href]="'tel:' + contacto.telefono" class="contacto-link">
+            {{ contacto.telefono }}
+          </a>
+        </div>
+      </div>
+
+      <div class="contacto-item">
+        <i class="icon">📍</i>
+        <div>
+          <strong>Dirección:</strong>
+          <span>{{ contacto.direccion }}</span>
+        </div>
+      </div>
+
+      <div class="contacto-item">
+        <i class="icon">🕒</i>
+        <div>
+          <strong>Horario de Atención:</strong>
+          <span>{{ contacto.horario }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="boton">
+      <button routerLink="/">Volver al Inicio</button>
+    </div>
+  </div>
+</div>

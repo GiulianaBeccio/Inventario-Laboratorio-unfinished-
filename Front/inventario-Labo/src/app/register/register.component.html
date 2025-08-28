@@ -12,80 +12,81 @@
     <!-- Mensajes -->
     <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <div class="form-scroll-container">
+      <!-- Elección de tipo de usuario -->
+      <div *ngIf="!tipoSeleccionado" class="tipo-selector">
+        <button (click)="seleccionarTipo('ALUMNO')">Alumno</button>
+        <button (click)="seleccionarTipo('PROFESOR')">Profesor</button>
+      </div>
 
-    <!-- Elección de tipo de usuario -->
-    <div *ngIf="!tipoSeleccionado" class="tipo-selector">
-      <button (click)="seleccionarTipo('ALUMNO')">Alumno</button>
-      <button (click)="seleccionarTipo('PROFESOR')">Profesor</button>
+      <!-- Formulario Alumno -->
+      <form *ngIf="tipoSeleccionado === 'ALUMNO'" (ngSubmit)="onSubmitAlumno()" #alumnoForm="ngForm">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" [(ngModel)]="alumno.nombre" name="nombre" required>
+
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" [(ngModel)]="alumno.apellido" name="apellido" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" [(ngModel)]="alumno.email" name="email" required>
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" [(ngModel)]="alumno.password" name="password" required>
+
+        <label for="dni">DNI</label>
+        <input type="number" id="dni" [(ngModel)]="alumno.dni" name="dni" required>
+
+        <div class="boton">
+          <button type="submit" [disabled]="loading">Registrarse</button>
+        </div>
+        <div class="volver">
+          <button type="button" (click)="reiniciarSeleccion()">Volver</button>
+        </div>
+      </form>
+
+      <!-- Formulario Profesor -->
+      <form *ngIf="tipoSeleccionado === 'PROFESOR'" (ngSubmit)="onSubmitProfesor()" #profesorForm="ngForm">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" [(ngModel)]="profesor.nombre" name="nombre" required>
+
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" [(ngModel)]="profesor.apellido" name="apellido" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" [(ngModel)]="profesor.email" name="email" required>
+
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" [(ngModel)]="profesor.password" name="password" required>
+
+        <label for="materiaDada">Materia que da</label>
+        <input type="text" id="materiaDada" [(ngModel)]="profesor.materiaDada" name="materiaDada" required>
+
+        <label for="carrera">Carrera</label>
+        <select id="carrera" name="carrera" [(ngModel)]="profesor.carrera" (change)="onCarreraChange($event)" required>
+          <option value="">-- Seleccionar carrera --</option>
+          <option value="Ingeniería en Sistemas">Ingeniería en Sistemas</option>
+          <option value="Licenciatura en Informática">Licenciatura en Informática</option>
+          <option value="Profesorado en Matemática">Profesorado en Matemática</option>
+          <option value="Otro">Otro</option>
+        </select>
+
+        <div *ngIf="mostrarCampoCarreraOtro">
+          <label for="otraCarrera">Otra carrera</label>
+          <input type="text" id="otraCarrera" [(ngModel)]="carreraOtra" name="otraCarrera" required>
+        </div>
+
+        <label for="claveSecreta">Clave secreta</label>
+        <input type="password" id="claveSecreta" [(ngModel)]="claveSecreta" name="claveSecreta" required>
+        <div *ngIf="claveIncorrecta" class="error-message">Clave secreta incorrecta</div>
+
+        <div class="boton">
+          <button type="submit" [disabled]="loading">Registrarse</button>
+        </div>
+        <div class="volver">
+          <button type="button" (click)="reiniciarSeleccion()">Volver</button>
+        </div>
+      </form>
     </div>
-
-    <!-- Formulario Alumno -->
-    <form *ngIf="tipoSeleccionado === 'ALUMNO'" (ngSubmit)="onSubmitAlumno()" #alumnoForm="ngForm">
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" [(ngModel)]="alumno.nombre" name="nombre" required>
-
-      <label for="apellido">Apellido</label>
-      <input type="text" id="apellido" [(ngModel)]="alumno.apellido" name="apellido" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" [(ngModel)]="alumno.email" name="email" required>
-
-      <label for="password">Contraseña</label>
-      <input type="password" id="password" [(ngModel)]="alumno.password" name="password" required>
-
-      <label for="dni">DNI</label>
-      <input type="number" id="dni" [(ngModel)]="alumno.dni" name="dni" required>
-
-      <div class="boton">
-        <button type="submit" [disabled]="loading">Registrarse</button>
-      </div>
-      <div class="volver">
-        <button type="button" (click)="reiniciarSeleccion()">Volver</button>
-      </div>
-    </form>
-
-    <!-- Formulario Profesor -->
-    <form *ngIf="tipoSeleccionado === 'PROFESOR'" (ngSubmit)="onSubmitProfesor()" #profesorForm="ngForm">
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" [(ngModel)]="profesor.nombre" name="nombre" required>
-
-      <label for="apellido">Apellido</label>
-      <input type="text" id="apellido" [(ngModel)]="profesor.apellido" name="apellido" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" [(ngModel)]="profesor.email" name="email" required>
-
-      <label for="password">Contraseña</label>
-      <input type="password" id="password" [(ngModel)]="profesor.password" name="password" required>
-
-      <label for="materiaDada">Materia que da</label>
-      <input type="text" id="materiaDada" [(ngModel)]="profesor.materiaDada" name="materiaDada" required>
-
-      <label for="carrera">Carrera</label>
-      <select id="carrera" name="carrera" [(ngModel)]="profesor.carrera" (change)="onCarreraChange($event)" required>
-        <option value="">-- Seleccionar carrera --</option>
-        <option value="Ingeniería en Sistemas">Ingeniería en Sistemas</option>
-        <option value="Licenciatura en Informática">Licenciatura en Informática</option>
-        <option value="Profesorado en Matemática">Profesorado en Matemática</option>
-        <option value="Otro">Otro</option>
-      </select>
-
-      <div *ngIf="mostrarCampoCarreraOtro">
-        <label for="otraCarrera">Otra carrera</label>
-        <input type="text" id="otraCarrera" [(ngModel)]="carreraOtra" name="otraCarrera" required>
-      </div>
-
-      <label for="claveSecreta">Clave secreta</label>
-      <input type="password" id="claveSecreta" [(ngModel)]="claveSecreta" name="claveSecreta" required>
-      <div *ngIf="claveIncorrecta" class="error-message">Clave secreta incorrecta</div>
-
-      <div class="boton">
-        <button type="submit" [disabled]="loading">Registrarse</button>
-      </div>
-      <div class="volver">
-        <button type="button" (click)="reiniciarSeleccion()">Volver</button>
-      </div>
-    </form>
 
     <!-- Ya tenés cuenta -->
     <div class="login">

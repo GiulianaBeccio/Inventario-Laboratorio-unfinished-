@@ -3,7 +3,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ActivatedComponent } from './activated/activated.component';
-import { InicioComponent } from './pages/inicio.component';
+import { InicioComponent } from './components/pages/inicio/inicio.component';
+import { ContactoComponent } from './components/pages/contacto/contacto.component';
 
 // Importar el guard de autenticación
 import { authGuard } from './guards/auth.guard';
@@ -16,6 +17,11 @@ export const routes: Routes = [
   { 
     path: 'login', 
     component: LoginComponent 
+    // ← Pública (sin canActivate)
+  },
+  { 
+    path: 'contact', 
+    component: ContactoComponent 
     // ← Pública (sin canActivate)
   },
   { 
